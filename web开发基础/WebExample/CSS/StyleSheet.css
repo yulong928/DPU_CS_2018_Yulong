@@ -1,0 +1,21 @@
+﻿h1{
+    text-decoration:underline;
+    font-style:italic;
+}
+
+p {
+    color: green;
+}
+
+.colorRed {
+    color: red;
+    background-color: aqua;
+}
+
+.colorBlue {
+    color: blue;
+}
+
+#boldFont {
+    font-weight: bold;
+}

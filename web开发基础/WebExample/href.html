@@ -1,0 +1,20 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>表单元素</title>
+    <script>
+  function getFocus(obj){
+	  obj.style.color="red";
+	  obj.style.background="#FFE4C4";
+  }
+  function getBlur(obj){
+	  obj.style.color="blue";
+	  obj.style.background="#DCDCDC";
+  }
+    </script>
+</head>
+<body>
+    用户名：<input type="text" onFocus="getFocus(this)" onBlur="getBlur(this)" /><br />
+    密码：<input type="password" onFocus="getFocus(this)" onBlur="getBlur(this)" />
+</body>
+</html>

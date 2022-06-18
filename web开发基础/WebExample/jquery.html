@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>单击按钮改变一个DIV的背景色</title>
+   
+    <script src="JS/jquery-3.2.1.min.js"></script>
+    <style>
+        .colorRed{
+            background-color:red;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(
+                function () {
+                    // 得到对象selColor的值
+
+
+                    $(".colorRed").css("background-color", "red");
+                }
+                );
+        });
+    </script>
+</head>
+<body>
+    <select id="selColor">
+        <option value="red">红</option>
+        <option value="green">绿</option>
+        <option value="blue">蓝</option>
+    </select>
+
+   <div id="my">这是一个id值为my的DIV</div>
+    <div>这是一个DIV，没有指定id值</div>
+    <div id="my">这是一个id值为my的DIV</div>
+    <div class="colorRed">这是一个DIV，没有指定id值</div>
+
+
+
+
+    <input type="button" value="改变第一个DIV的背景色" id="btn" />
+</body>
+</html>

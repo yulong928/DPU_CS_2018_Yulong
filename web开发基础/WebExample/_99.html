@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script language="JavaScript">
+        function nine(obj) {
+            //1 .取得 文本框输入 的值 
+            var username = f1.user.value;
+            
+                alert(username.substr(0,1));
+            
+            // 判断，是否包含张字
+            //如果 有 张字，则 输出不允许
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <script>
+        var current_time = new Date();
+
+        with (current_time)
+            {
+
+        var s = getFullYear() + "年"
+                 + (getMonth()+1) + "月" 
+                 + getDate() + "日";
+        }
+
+        document.writeln(s);
+
+    </script>
+    <a href="href.html">到 Href 页面</a>
+
+    <form method="post" name="f1">
+
+
+        <input type="text" name="user" placeholder="请输入用户名"/><br />
+        <input type="button" value="九九乘法表" onclick="nine()" />
+        <input type="button" value="试试乘法表" onclick="nine()" />
+      
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        div{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+
+        }
+
+    </style>
+           
+    <script>
+
+        function MyMouseOver(obj)
+        {
+            //document.getElementById("div1").style.backgroundColor = "green";
+            obj.style.backgroundColor = "green";
+        }
+
+        function MyMouseOut(obj)
+        {
+            //document.getElementById("div1").style.backgroundColor = "red";
+            obj.style.backgroundColor = "red";
+        }
+        function hidediv()
+        {
+
+            document.getElementById("div1").style.display = "none";
+            //document.getElementById("btn1").disabled = true;
+        }
+
+        function changeImg()
+        {
+            var oImg = document.getElementById("myImg");
+            oImg.src = "Image/ioVE-huqrnan4787705.jpg";
+
+        }
+
+
+
+    </script>
+    
+
+</head>
+<body>
+
+    <div onmouseover="MyMouseOver(this)" onmouseout="MyMouseOut(this)" id="div1">
+        1
+
+    </div>
+    <br />
+    <div onmouseover="MyMouseOver(this)" onmouseout="MyMouseOut(this)" id="div2">
+
+        2
+    </div>
+    <br />
+    <div onmouseover="MyMouseOver(this)" onmouseout="MyMouseOut(this)" id="div3">
+        3
+        
+    </div>
+
+    <input type="button" value="Click" id ="btn1" onclick='changeImg()' />
+
+    <input type="button" value="display:none" onclick="hidediv()"/>
+
+    <img src="Image/桃花背景.jpg" width="100" id="myImg" />
+
+
+
+
+
+</body>
+</html>

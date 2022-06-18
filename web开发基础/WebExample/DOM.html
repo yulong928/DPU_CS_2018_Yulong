@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        .errormsg {
+            color: red;
+        }
+        table,td{
+            border:1px solid black;
+            border-collapse:collapse;
+            text-align:left;
+           
+        }
+        #container{
+            width:50%;
+            text-align:center;
+            margin:0 auto
+        }
+        table{
+            width:100%;
+        }
+    </style>
+    <script>
+        function ShowForm() {
+            var xm = form1.username.value;
+            var mm = form1.password.value;
+            var xb = form1.gender.value;
+            var xibie = form1.seldept.value;
+
+
+            var ah = "";
+            if (form1.chkHobby1.checked) ah += form1.chkHobby1.value + "/";
+            if (form1.chkHobby2.checked) ah += form1.chkHobby2.value + "/";
+            if (form1.chkHobby3.checked) ah += form1.chkHobby3.value + "/";
+
+            // 专业 select 多选
+            var zhuanye = "";
+
+            for (i = 0; i < form1.selmajor.options.length; i++) {
+                if (form1.selmajor.options[i].selected == true) {
+                    zhuanye += form1.selmajor.options[i].value + ":" + form1.selmajor.options[i].text + "/";
+                }
+
+            }
+
+            // 简历
+            var jl = form1.txtJL.value
+
+            var showStr = "姓名:" + xm + "<br>" + "密码:" + mm;
+            showStr += "<br>" + "性别:" + xb
+            showStr += "<br>" + "爱好:" + ah
+            showStr += "<br>" + "系别:" + xibie
+            showStr += "<br>" + "专业:" + zhuanye
+            showStr += "<br>" + "简历:" + jl
+
+
+
+
+            //DIV
+            document.getElementById("msg1").innerHTML = showStr;
+
+
+        }
+
+        function ShowForm2() {
+            var xm = document.getElementById("user").value;
+            var mm = document.getElementById("pwd").value;
+
+            //性别
+            var xbs = document.getElementsByName("gender");
+            var xb = "";
+            for (i = 0; i < xbs.length; i++) {
+                if (xbs[i].checked == true) xb += xbs[i].value;
+            }
+
+            // 爱好
+            var ahs = document.getElementsByName("chkHobby");
+            var ah = "";
+            for (i = 0; i < ahs.length; i++) {
+                if (ahs[i].checked == true) ah += ahs[i].value + "/";
+            }
+
+            //系别
+            var xibie = document.getElementById("seldept").value;
+            //专业
+            var oZy = document.getElementById("selmajor")
+            var zhuanye = ""
+            for (i = 0; i < oZy.options.length; i++) {
+                if (oZy.options[i].selected == true) zhuanye += oZy.options[i].value + "/";
+            }
+
+
+            var showStr = "姓名:" + xm + "<br>" + "密码:" + mm;
+
+            showStr += "<br>" + "性别:" + xb;
+
+            showStr += "<br>" + "爱好:" + ah
+            showStr += "<br>" + "系别:" + xibie
+            showStr += "<br>" + "专业:" + zhuanye
+            // showStr += "<br>" + "简历:" + jl
+
+
+
+
+            //DIV
+            document.getElementById("msg1").innerHTML = showStr;
+
+            checkForm();
+
+
+        }
+
+        function checkForm() {
+            // 做检查
+            if (xm.length < 2) {
+                document.getElementById("usernamemsg").innerText = "姓名长度不能小于2个字符！";
+            }
+            else {
+                document.getElementById("usernamemsg").innerText = "";
+            }
+
+
+        }
+
+
+        function SetForm() {
+            form1.username.value = "张三";
+            form1.chkHobby1.checked = true;
+
+            form1.selmajor.options.add(new Option("电信", "电信000"));
+
+            form1.selmajor.options[0].selected = true;
+            form1.selmajor.options[2].selected = true;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="container">
+            <form name="form1">
+                
+                    <table>
+                        <tr><td>姓名: </td><td><input type="text" name="username" id="user" /><span class="errormsg" id="usernamemsg"> </span></td></tr>
+                        <tr><td>口令:  </td><td><input type="password" name="password" id="pwd" /></td></tr>
+                        <tr><td>性别: </td><td><input type="radio" name="gender" value="男" />男<input type="radio" name="gender" value="女" />女</td></tr>
+                        <tr>
+                            <td>爱好: </td>
+                            <td>
+                                <input type="checkbox" name="chkHobby" value="音乐" /> 音乐
+                                <input type="checkbox" name="chkHobby" value="体育" checked /> 体育
+                                <input type="checkbox" name="chkHobby" value="美术" /> 美术
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> 系别: </td>
+                            <td>
+                                <select name="seldept" id="seldept">
+                                    <option value="信息学院" selected>信息学院</option>
+                                    <option value="机械学院" selected>机械学院</option>
+                                    <option value="食品学院">食品学院</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>专业: </td>
+                            <td>
+                                <select name="selmajor" id="selmajor" multiple>
+                                    <option value="计算机001">计算机</option>
+                                    <option value="网络001">网络001</option>
+                                    <option value="自动化000">自动化</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>简历: </td>
+                            <td>
+                                <textarea cols="10" rows="4" name="txtJL" id="JL">
+                                    中国高等航海教育
+                                </textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" value="显示Form取值" onclick="ShowForm2()" />
+                                <input type="button" value="设置Form控件值" onclick="SetForm2()" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div id="msg1">
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script type="text/javascript">
+
+      var   nPos = 1;
+
+        function GenNum()
+        {
+            // 第一个
+            if (nPos == 3) {
+                var n3 = GetOneDigit();
+                document.getElementById("num3").innerText = n3;
+                document.getElementById("num3").style.backgroundColor = "red";
+                nPos++;
+                //return
+            }
+            if (nPos == 2) {
+                var n2 = GetOneDigit();
+                document.getElementById("num2").innerText = n2;
+                document.getElementById("num2").style.backgroundColor = "red";
+                nPos++;
+                //return
+            }
+
+            if (nPos == 1)
+            {
+                var n1 = GetOneDigit();
+                document.getElementById("num1").innerText = n1;
+                document.getElementById("num1").style.backgroundColor="red";
+                nPos++;
+                //return 
+            }
+
+         
+
+
+
+        }
+    
+        function GetOneDigit()
+        {
+            return Math.round(Math.random() * 10) % 10;
+
+        }
+
+    </script>
+
+    <style>
+        #container{
+            width:80%;
+            min-width:600px;
+            height:450px;
+            background-color:aquamarine;
+            margin:0 auto;
+         
+            display:-moz-box;
+            display:-webkit-box;
+            display:-ms-flexbox;
+            display:flex;
+
+    
+  
+              
+           justify-content:space-between;
+
+        }
+
+        #num1,#num2,#num3{
+            background-color:brown;
+            width:30%;
+            height:400px;
+            flex-grow:1;
+            margin:10px;
+            font-size:300px;
+            text-align:center;
+        }
+
+        #divButton
+        {
+            height:100px;
+            background-color:blueviolet;
+            text-align:center;
+        }
+            #divButton input {
+                height: 80px;
+                width: 300px;
+                font-size: 40px;
+            }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="num1">
+             1
+        </div>
+
+        <div id="num2">
+            1
+        </div>
+
+        <div id="num3">
+            1
+        </div>
+
+
+
+    </div>
+
+    <div id="divButton">
+        
+        <input type="button"  value="开始" onclick="GenNum()"/>
+
+
+    </div>
+
+</body>
+</html>
+

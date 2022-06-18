@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+
+
+    <style>
+        div {
+            height: 100px;
+            border:1px solid red;
+            font-size:4em;
+            text-align:center;
+        }
+        #div_yourbirthday,div_spanddays{
+            font-size:3em;
+            color:green ;
+        }
+    </style>
+    <script>
+      //var timer;
+        function ShowTime() {
+            var d = new Date()
+            var s = "现在时间"+ d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日"+d.getHours()+"时"+d.getMinutes()+"分"+d.getSeconds()+"秒";
+            document.getElementById("div_today").innerHTML = s;
+        }
+
+        function Start()
+        {
+            timer = window.setInterval("ShowTime()", 1000);
+
+        }
+
+        ////两个日期之间的天数,
+        function GetyDiffDays(date1, date2)
+        {
+            var msec1 = date1.getTime();
+            var msec2 = date2.getTime();
+            var days = Math.ceil((msec2 - msec1) / (24 * 60 * 60 * 1000));
+            return days;
+
+        }
+
+        function Show()
+        {
+            // 字符串
+            var d = document.getElementById("birthday").value; //2019-06-05
+            document.getElementById("welcomemsg").innerHTML = "您的出生日期为" + d;
+            // 出生日期 的对象
+            var d1 = new Date(d);
+            var x = GetyDiffDays(d1, new Date());
+            document.getElementById("div_spanddays").innerHTML = "您已经在地球上生活了" + x + "天!";
+        }
+
+    </script>
+</head>
+<body onload="Start()">
+
+
+    <div id="div_today"></div>
+    <div id="div_yourbirthday">
+        <input type="date" name="birthday" id="birthday" /> <input type="button" value="计算" onclick="Show()" />
+        <span id="welcomemsg">
+        </span>
+    </div>
+    <div id="div_spanddays"></div>
+
+
+
+</body>
+</html>

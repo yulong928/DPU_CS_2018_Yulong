@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <iframe name="iframe1" src="http://www.baidu.com" width="800" height="300" frameborder="0"></iframe>
+    <iframe name="iframe1" src="http://www.sohu.com" width="800" height="300" frameborder="0"></iframe>
+    <form name="Form1" method="get" action="t.html">
+
+      <table border="1" width="300">
+         <tr><td colspan="2"><img src="Image/0JMP-huqrnan4371047.jpg" width="290"/></td></tr>
+           <tr><td> 姓名：</td><td><input type="text" value="zhangan" name="txtName" id="txtName" /></td></tr>
+          <tr><td>年龄:</td><td><input type="text" value="18" name="txtAge" id="txtAge" size="50" /></td></tr>
+          <tr><td>密码:</td><td><input type="password" name="txtPwd" /></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+          <tr><td></td><td></td></tr>
+
+      </table>
+          
+         <br />
+        
+        性别：<input type="radio" name="rdoGender" value="男" checked="checked" />男
+        <input type="radio" name="rdoGender" value="女" />女<br />
+        班级： <input type="radio" name="rdoClassName" value="1" />计算机181班
+        <input type="radio" name="rdoClassName" value="2" checked />计算机182班<br />
+
+        <input type="hidden" name="hiddenFld" value="Test" />
+        简历：<input type="file" /><br />
+        爱好：<input type="checkbox" name="chkHobby1" value="听音乐" /> 听音乐
+        <input type="checkbox" name="chkHobby2" value="喝茶" /> 喝茶
+        <input type="checkbox" name="chkHobby3" value="旅游" />旅游
+        <input type="checkbox" name="chkHobby4" value="休息" /> 休息<br />
+        城市：
+        <select name="city">
+        <optgroup label="大连"></optgroup>
+        <option selected="selected" value=1>瓦房店</option>
+        <option value=2>普兰店</option>
+        <option value=3>庄河</option>
+        <optgroup label="朝阳"></optgroup>
+        <option value=4>凌源</option>
+        <option value=5>建平</option>
+        <option value=6>喀左</option>
+
+        </select>
+        <br />
+    简历
+        <TEXTAREA name="areaResume" rows="5" cols="60">
+            sdfsadfsadf
+            sadfsdads
+
+
+
+        </TEXTAREA>
+   
+        <br />
+        <input type="submit" value="提交(Submit)" />
+        <input type="reset" value="重置(Reset)" />
+
+        <hr />
+        <p>请输入数字：<input type="number" name="no1" value="3" /></p>
+        <p>请输入大于等于1的数字：<input type="number" name="no2" min="1" /></p>
+        <p>请输入1-10之间的数字：<input type="number" name="no3" min="1" max="10" step="3" /></p>
+        <p>请输入大于等于1的数字： <input type="range" name="r1" min="1" value="1" /></p>
+        <p>请输入1-10之间的数字： <input type="range" name="r2" min="1" max="10" step="3" value="2" /></p>
+
+        请选择日期:<br>
+        年月 <input name="user_month" id="user_month" type="month" value="2018-04" /><br>
+        日期<input name="user_date" id="user_date" type="date" value="2018-04-06" /><br>
+        时间<input name="user_time" id="user_time" type="time" value="00:31" />
+        周<input name="user_week" id="user_week" type="week" value="2018-W04" />
+        本地日期时间<input name="datetime_local" id="datetime_local" type="datetime-local" value="2018-01-01T01:31" />
+
+
+    </form>
+
+</body>
+</html>

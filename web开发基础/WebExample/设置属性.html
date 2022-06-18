@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    请阅读 <a href="/jsref/dom_obj_attributes.asp" target="_blan1k">Attr 对象</a>，
+
+    <p id="demo">请点击按钮来显示上面这个链接的 target 属性值。</p>
+
+    <button onclick="myFunction()">试一下</button>
+
+    <script>
+        function myFunction() {
+            var a = document.getElementsByTagName("a")[0];
+            document.getElementById("demo").innerHTML = a.getAttribute("target");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8" />
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        #msg {
+            width: 100%;
+            /* height:30px;*/
+            background-color: yellow;
+        }
+
+        #container {
+            background-color: greenyellow;
+            width: 400px;
+            margin: 0 auto;
+        }
+        a{
+            font-size:3em;
+            text-decoration:none;
+        }
+    </style>
+
+    <script>
+        $(
+            function () {
+
+                $("#txtName").val("张三");
+            }
+
+            );
+
+
+        function Save() {
+            var x = eval("24.7+2.3");
+            alert(x);
+            return;
+            
+
+            // 得到对象 ，获取值
+            var xm = document.getElementById("txtName").value;
+            var nl = document.getElementById("txtAge").value;
+
+
+            // 检查值是否合法
+
+
+            // 如果不合法
+
+            //显示警告信息
+
+
+            if (xm.length < 2) {
+                alert("姓名不合法！")
+                return;
+            }
+            if (parseInt(nl) < 18) {
+                alert("年龄不合法！")
+                return;
+
+            }
+
+
+            //否则
+
+            // 显示输入信息
+            var outMsg = "姓名:" + xm + "<br>"
+            outMsg += "年龄:" + nl;
+
+            document.getElementById("msg").innerHTML = outMsg;
+
+
+        }
+
+        //function check(xm,nl)
+        //{
+        //    return checkName(xm) && checkAge(nl);
+        //}
+
+        //// 有效性检查
+        //function checkName(xm)
+        //{
+        //    return xm.length >= 2;
+        //}
+
+        //function checkAge(nl) {
+
+        //    return (parseInt(nl) >= 18);
+        //}
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <script>
+        // DOM 操作
+        //
+        //1得到对象
+      //  var o = document.getElementById("id");
+
+        // 表单
+        //表单名.控件名
+
+
+        //2操作对象
+
+
+
+
+
+        //表单类的
+        //对象.value 获取或者设置
+
+
+        //其他类的
+        //
+        //对象.innerHtml, innerText
+        // <a href="" target= >  通过 对象.属性 href.href=
+        // <img src=""> oImg.src =
+
+        // CSS 操作
+        //对象.style.属性名
+
+        // 属性
+        // 对象.getAttribute() 样式类操作
+        // 对象.setAttribute() 样式类操作
+        // 对象.removeAttribute() 样式类操作
+
+
+
+
+
+
+    </script>
+
+
+    <form>
+        <div id="container">
+            
+            <a href="#">大连工业大学</a>
+            <table>
+                <tr><td>姓名：</td><td><input type="text" name="txtName" id="txtName" /></td></tr>
+                <tr><td>年龄：</td><td><input type="text" name="txtAge" id="txtAge" /></td></tr>
+                <tr><td colspan="2" align="right"><input type="button" value="提交" onclick="Save()" /></td></tr>
+                <tr><td colspan="2"><div id="msg"></div></td></tr>
+            </table>
+        </div>
+
+    </form>
+
+
+
+
+
+</body>
+</html>

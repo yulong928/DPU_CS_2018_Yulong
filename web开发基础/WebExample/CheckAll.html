@@ -1,0 +1,72 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <title>getElementByName</title>
+    <style type="text/css">
+        table {
+            margin: 0 auto;
+            width: 958px;
+            border-width: 2;
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+    <script language="javascript">
+        function checkAll(boolValue) {
+        
+
+
+            var allCourseCheckBoxs = document.getElementsByClassName("chkCourse");
+            for (i = 0; i < allCourseCheckBoxs.length; i++) {
+                allCourseCheckBoxs[i].checked = boolValue;
+            }
+
+
+        }
+        function change() {
+            if (document.getElementById("chkAll").checked == true)
+                checkAll(true);
+            else
+                checkAll(false);
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="buyForm" method="post">
+        <table border="1">
+            <tr>
+                <td colspan="2">课程列表</td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="chkAll" id="chkAll" type="checkbox" onclick="change()" /> 全选
+                </td>
+                <td>课程名称</td>
+            </tr>
+            <tr>
+                <td><input name="chkCourse" type="checkbox" id="chkCourse1" value="1" class="chkcourse" /> </td>
+                <td> .Net技术与应用</td>
+
+            </tr>
+            <tr>
+                <td><input name="chkCourse" type="checkbox" id="chkCourse2" value="2" class="chkcourse" /> </td>
+                <td>Java技术与应用</td>
+
+            </tr>
+            <tr>
+                <td><input name="chkCourse" type="checkbox" id="chkCourse3" value="3" class="chkcourse" />  </td>
+                <td>大数据技术与应用</td>
+
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
+
+
