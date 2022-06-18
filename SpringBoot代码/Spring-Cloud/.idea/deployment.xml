@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="yulong" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="yulong">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/yulong-springCloud" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

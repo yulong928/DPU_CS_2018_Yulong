@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="088b3446-a49c-4318-af13-38bf56131cb1" name="yulong" url="http://47.94.226.222:9000/eureka">
+        <fileTransfer rootFolder="/root/SpringCloudTest" accessType="SFTP" host="47.94.226.222" port="22" sshConfigId="970c4a17-f53f-47e9-adb4-7acb288f59a6" sshConfig="root@47.94.226.222:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

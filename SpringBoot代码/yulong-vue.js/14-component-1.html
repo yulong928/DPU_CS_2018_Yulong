@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+<!--        组件的使用-->
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+</body>
+<script type="text/javascript">
+
+    //定义组件
+    const counter = {
+        template:"<button @click='num++'>你点击了{{num}}次</button>",
+        data(){
+            return {num:0}
+        }
+    };
+
+    //全局注册组件：所有vue实例都可以使用组件
+    //Vue.component("counter",counter);
+
+    var app = new Vue({
+        el:"#app",
+        components:{
+            counter:counter
+        }
+    });
+</script>
+</html>

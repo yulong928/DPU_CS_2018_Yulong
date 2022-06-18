@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind测试</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message"/><br/>
+    <input type="text" v-model="persion.name"><button @click="persion.age++">按钮</button><br/>
+    <h2>姓名为{{persion.name}},年龄为{{persion.age}}</h2>
+</div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+       el:"#app",
+        data:{
+           message:"梁宇龙",
+            persion:{"name":"王延磊","age":22}
+        },
+        watch:{
+           message(newValue,oldValue){
+               console.log("新值："+newValue+";旧值："+oldValue)
+           },
+            persion:{
+               deep:true,
+                handler(obj){
+                   console.log("name = "+obj.name+";age = "+obj.age);
+                }
+            }
+        }
+    });
+</script>
+</html>

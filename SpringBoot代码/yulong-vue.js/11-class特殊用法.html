@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind测试</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            color: white;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        .blue{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="bool=!bool">改变色块颜色</button>
+    <div :class="{red:bool,blue:!bool}">
+        点击按钮改变颜色
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+       el:"#app",
+       data:{
+           color:"red",
+           bool:true
+       }
+    });
+</script>
+</html>

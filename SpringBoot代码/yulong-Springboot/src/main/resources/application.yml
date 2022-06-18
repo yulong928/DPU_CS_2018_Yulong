@@ -1,0 +1,21 @@
+logging:
+  level:
+    ac.sict: debug
+    org.springframework: info
+server:
+  port: 8086
+  servlet:
+    context-path: /SpringBoot
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Springboot_test
+    username: root
+    password: 12345678
+  redis:
+    host: localhost
+    port: 6379
+mybatis:
+  type-aliases-package: ac.sict.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

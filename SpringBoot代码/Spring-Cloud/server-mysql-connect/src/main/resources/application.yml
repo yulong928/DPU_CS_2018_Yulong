@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc://47.94.226.222:3306

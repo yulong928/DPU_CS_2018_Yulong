@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dubbo_frame_provider:war">
+    <output-path>$PROJECT_DIR$/../dubbo_frame_provider/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>dubbo_frame_provider</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="dubbo_frame_provider-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="dubbo_frame_provider:war exploded" />
+    </root>
+  </artifact>
+</component>

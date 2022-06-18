@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind测试</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>
+        您的生日是：{{new Date(birthday).getFullYear()}}-{{new Date(birthday).getMonth()+1}}-{{new Date(birthday).getDay()}}
+    </h2>
+    <hr/>
+    <h2>
+        computed计算您的生日为：{{birth}}
+    </h2>
+</div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+       el:"#app",
+        data:{
+           birthday:1429032123201
+        },
+        //计算属性的应用场景，用于插值或指令表达式复杂的时候。可以将一些属性数据经过处理之后返回。
+        computed:{
+           birth(){
+               const date = new Date(this.birthday);
+               return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+           }
+        }
+    });
+</script>
+</html>

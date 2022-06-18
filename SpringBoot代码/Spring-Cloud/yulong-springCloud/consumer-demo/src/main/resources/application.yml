@@ -1,0 +1,42 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka
+    #获取服务列表间隔时间(默认30秒)
+    registry-fetch-interval-seconds: 10
+spring:
+  application:
+    name: consumer-demo
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+      circuitBreaker:
+        errorThresholdPercentage: 50
+        sleepWindowInMilliseconds: 10000
+        requestVolumeThreshold: 10
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true   #开启请求压缩
+      min-request-size: 2048
+      mime-types: text/html,application/xml,application/json
+    response:
+      enabled: true
+ribbon:
+  ReadTimeout: 2000
+  ConnectTimeout: 1000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+
+logging:
+  level:
+    ac.sict: debug

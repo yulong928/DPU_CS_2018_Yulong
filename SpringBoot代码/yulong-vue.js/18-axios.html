@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue测试</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="grade" v-model="grade"/>
+        <input type="submit" value="提交" @click="decrement">
+        <h2 v-text="msg"></h2>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+       el:"#app",
+        data:{
+           msg:"未回应数据",
+            grade:""
+        },
+        methods:{
+            decrement(){
+                axios({
+                    url:"http://localhost:8086/api/consumer",
+                    method:"get",
+                    params:{
+                        grade: this.grade
+                    }
+                }).then(
+                    (res) => {
+                        this.msg = res.data;
+                    }
+                ).catch(
+                    (error)=>{
+                        console.log("请求出错");
+                    }
+                );
+            }
+        }
+    });
+</script>
+</html>
