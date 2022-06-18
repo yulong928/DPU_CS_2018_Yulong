@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+
+    <select id="findAll" resultType="ac.sict.G8_AMS.domain.XOX">
+        select * from xox
+    </select>
+
+    <select id="findMusic" resultType="ac.sict.G8_AMS.domain.Music">
+        select * from music
+    </select>
+
+    <select id="findMusicFromId" resultType="ac.sict.G8_AMS.domain.Music" parameterType="ac.sict.G8_AMS.domain.Music">
+        select * from music where musicID=#{musicID}
+    </select>
+
+    <select id="findNoticeMain" resultType="ac.sict.G8_AMS.domain.NoticeMain">
+        select * from notice_main
+    </select>
+
+    <select id="findCap" resultType="ac.sict.G8_AMS.domain.XOX">
+        select * from xox where caption=true
+    </select>
+
+    <select id="findTeam" resultType="java.lang.String">
+        select distinct team from xox
+    </select>
+
+    <select id="findXoxUseTeam" resultType="ac.sict.G8_AMS.domain.XOX" parameterType="ac.sict.G8_AMS.domain.XOX">
+        select * from xox where team=#{team}
+    </select>
+
+    <select id="findXoxUseID" parameterType="ac.sict.G8_AMS.domain.XOX" resultType="ac.sict.G8_AMS.domain.XOX">
+        select * from xox where xoxID=#{xoxID}
+    </select>
+
+    <select id="findAlbumUseID" parameterType="ac.sict.G8_AMS.domain.Album" resultType="java.lang.String">
+        select distinct albumName from album where albumID=#{albumID}
+    </select>
+
+    <select id="findAlbum" resultType="ac.sict.G8_AMS.domain.Album">
+        select albumID, albumName from album
+    </select>
+
+    <select id="findMainNoticeUseID" resultType="ac.sict.G8_AMS.domain.NoticeMain" parameterType="ac.sict.G8_AMS.domain.NoticeMain">
+        select * from notice_main where id=#{id}
+    </select>
+
+    <select id="findNoticeUseID" resultType="ac.sict.G8_AMS.domain.NoticeTo" parameterType="ac.sict.G8_AMS.domain.XOX">
+        select * from noticeTo where acceptXoxID=#{xoxID}
+    </select>
+
+    <select id="findUncheckNoticeUseID" resultType="ac.sict.G8_AMS.domain.NoticeTo" parameterType="ac.sict.G8_AMS.domain.XOX">
+        select * from noticeTo where acceptXoxID=#{xoxID} and statue=0 and type=2
+    </select>
+
+    <select id="findMusicFromAlbum" parameterType="ac.sict.G8_AMS.domain.Album" resultType="ac.sict.G8_AMS.domain.Music">
+        select * from music where albumID=#{albumID}
+    </select>
+
+    <select id="findAlbumFromActUseId" parameterType="ac.sict.G8_AMS.domain.NoticeMain" resultType="java.lang.String">
+        select album from notice_main where id=#{id}
+    </select>
+
+    <select id="findMusicFromNoticdeAlbum" parameterType="ac.sict.G8_AMS.domain.NoticeMain" resultType="ac.sict.G8_AMS.domain.Music">
+        select * from music where albumID=#{album}
+    </select>
+
+    <select id="findXoxFromNoticeMusic" parameterType="ac.sict.G8_AMS.domain.NoticeMain" resultType="java.lang.String">
+        select distinct xoxID from notice_music where actID=#{id}
+    </select>
+
+    <select id="findNoticeMusicForXox" parameterType="ac.sict.G8_AMS.domain.ArrangeMusicToAct" resultType="ac.sict.G8_AMS.domain.ArrangeMusicToAct">
+        select * from notice_music where actID=#{actID} and xoxID=#{xoxID}
+    </select>
+
+    <select id="findMsgFromNoticeToUseXOX" parameterType="ac.sict.G8_AMS.domain.XOX" resultType="ac.sict.G8_AMS.domain.NoticeTo">
+        select * from noticeTo where acceptXoxID=#{xoxID} and statue=0
+    </select>
+
+    <insert id="save" parameterType="ac.sict.G8_AMS.domain.Album">
+        insert into album value(#{albumID},#{albumName})
+    </insert>
+
+    <insert id="insertNoticeMain" parameterType="ac.sict.G8_AMS.domain.NoticeMain">
+        insert into notice_main value(#{id},#{dateAndTime},#{actName},#{team},#{cap},#{album},#{capStatue})
+    </insert>
+
+    <insert id="insertNoticeTo" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        insert into noticeTo value(#{noticeID},#{acceptXoxId},#{type},#{content},#{statue},null)
+    </insert>
+
+    <insert id="insertNoticeToApply" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        insert into noticeTo value(#{noticeID},#{acceptXoxId},#{type},#{content},#{statue},#{sendXoxId})
+    </insert>
+
+    <insert id="insertNoticeMusic" parameterType="ac.sict.G8_AMS.domain.ArrangeMusicToAct">
+        insert into notice_music value(#{actID},#{musicID},#{pre},#{xoxID})
+    </insert>
+
+    <update id="updateCapSet" parameterType="ac.sict.G8_AMS.domain.NoticeMain">
+        update notice_main set capStatue=#{capStatue} where id=#{id}
+    </update>
+
+    <update id="updateCapSet2" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        update noticeTo set statue=1 where noticeID=#{noticeID} and type=#{type}
+    </update>
+
+    <update id="updateCapSet3" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        update noticeTo set statue=1 where noticeID=#{noticeID} and type=#{type} and acceptXoxID=#{acceptXoxId}
+    </update>
+
+    <update id="applyLeaveToXOX" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        update noticeTo set statue=2 where noticeID=#{noticeID} and acceptXoxID=#{acceptXoxId} and type=2
+    </update>
+
+    <update id="acceptApplyForRequest" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        update noticeTo set statue=3 where acceptXoxID=#{sendXoxId} and noticeID=#{noticeID} and type=2
+    </update>
+
+    <update id="acceptApplyForResponse" parameterType="ac.sict.G8_AMS.domain.NoticeTo">
+        update noticeTo set statue=1 where acceptXoxID=#{acceptXoxId} and noticeID=#{noticeID} and type=3 and sendXoxId=#{sendXoxId}
+    </update>
+</mapper>
